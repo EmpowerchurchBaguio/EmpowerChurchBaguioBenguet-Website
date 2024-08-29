@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empower Baguio-Benguet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> <!-- Roboto Font -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7; 
+            color: #333; /
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2b0148, #2b0148); 
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 80px;
+            width: 80px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #dcdcdc;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 40px); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            color: #6a0dad;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        section p,
+        section ul {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        section ul li {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            font-size: 3rem; 
+            font-weight: bold;
+            color: #6a0dad; 
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        footer {
+            text-align: center;
+            background: #2b0148;
+            color: #fff;
+            padding: 5px 0;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .gallery-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 20px;
+            scroll-behavior: smooth;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 200px; 
+            height: 150px; 
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        section#gallery {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; 
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .core-values {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                width: 100%; 
+            }
+
+            header img {
+                height: 60px;
+                width: 60px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="image-logo.png" alt="[Empower Church Baguio-Benguet]">
+        <h1>Welcome to Empower Church Baguio-Benguet</h1>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('about')">About Us</a></li>
+                <li><a onclick="showSection('events')">Events</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+                <li><a onclick="showSection('gallery')">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2 class="highlight">Pre-Foundation Day</h2>
+            <p>We warmly invite you to join us for our Pre-Foundation Day celebration. This special event will be a time of reflection, celebration, and community as we prepare to commemorate our foundation.</p>
+            <h2>Event Details:</h2>
+            <ul>
+                <li><strong>Date:</strong> September 22, 2024</li>
+                <li><strong>Time:</strong> 1:00 PM - 4:00 PM</li>
+                <li><strong>Location:</strong> Christ Reigs</li>
+            </ul>
+            <p>We look forward to celebrating with you!</p>
+        </section>
+
+        <section id="about" class="hidden">
+            <h2>Our Mission</h2>
+            <p>Empower Church Mission.....</p>
+            <h2>Our Vision</h2>
+            <p>Empower Church Vision....</p>
+            <img src="Core Values.png" alt="Core Values" class="core-values">
+        </section>
+
+        <section id="events" class="hidden">
+            <h2>Upcoming Events</h2>
+            <h3>Pre-Foundation Day</h3>
+            <p>We warmly invite you to join us for our Pre-Foundation Day celebration. This special event will be a time of reflection, celebration, and community as we prepare to commemorate our foundation.</p>
+            <h4>Event Details:</h4>
+            <ul>
+                <li><strong>Date:</strong> September 22, 2024</li>
+                <li><strong>Time:</strong> 1:00 PM - 4:00 PM</li>
+                <li><strong>Location:</strong> Christ Reigs</li>
+            </ul>
+            <p>We look forward to celebrating with you!</p>
+        </section>
+
+        <section id="contact" class="hidden">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Whether you have questions about our services, or just want to get in touch, please feel free to reach out.</p>
+            <h3>Reach Out</h3>
+            <p>Phone: <a href="tel:+63956788888">(+63) 956 788 8888</a></p>
+            <h3>Follow Us on Social Media</h3>
+            <p>Stay connected with us through our social media channels:</p>
+            <ul>
+                <li><a href="https://www.facebook.com/empowerchurchBenguet" target="_blank">Facebook</a></li>
+                <li><a href="https://www.facebook.com/empowerythbenguet" target="_blank">Facebook</a></li>
+            </ul>
+            <h3>Find Us</h3>
+            <p>Our location is beside Cosmopolitan Hotel</p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.9461252675077!2d120.5893182!3d16.4156409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a165bb2c1051:0x784b4be6f91e01a4!2sHOTEL+Cosmopolitan!5e0!3m2!1sen!2sus!4v1631916787974!5m2!1sen!2sus"
+                    allowfullscreen
+                    loading="lazy"
+                    title="Map showing location of Empower Church">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="gallery" class="hidden">
+            <h2>Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item"><img src="Img1.jpg" alt="Gallery Image 1"></div>
+                <div class="gallery-item"><img src="Img2.jpg" alt="Gallery Image 2"></div>
+                <div class="gallery-item"><img src="Img3.jpg" alt="Gallery Image 3"></div>
+                <div class="gallery-item"><img src="Img4.jpg" alt="Gallery Image 4"></div>
+                <div class="gallery-item"><img src="Img5.jpg" alt="Gallery Image 5"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Empower Church Baguio-Benguet. "Disciple People, Build Nations".</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.remove('hidden');
+            activeSection.style.animation = 'fadeIn 1s ease-in-out';
+        }
+    </script>
+</body>
+
+</html>
